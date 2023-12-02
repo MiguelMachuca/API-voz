@@ -1,0 +1,15 @@
+# mkdir API-voz
+# cd API-voz
+
+# python -m venv venv
+
+# & "RUTA"\API-voz\venv\Scripts\Activate.ps1
+# & C:\Materias\SW1\Projet_voz\API-voz\venv\Scripts\Activate.ps1
+
+pip install Flask google-cloud-texttospeech
+
+pip install Flask-CORS
+
+pip install google-cloud-storage
+
+# python app.py
