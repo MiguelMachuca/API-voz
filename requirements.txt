@@ -4,11 +4,11 @@
 # & "RUTA"\API-voz\venv\Scripts\Activate.ps1
 # & C:\Materias\SW1\Projet_voz\API-voz\venv\Scripts\Activate.ps1
 pip
-Flask==3.0.0
-google-cloud-texttospeech==2.14.2
-Flask-CORS==4.0.0
-google-cloud-storage==2.13.0
-cloudinary==1.36.0
+Flask
+google-cloud-texttospeech
+Flask-CORS
+google-cloud-storage
+cloudinary
 gunicorn
 
 #pip install Flask google-cloud-texttospeech
