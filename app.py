@@ -10,8 +10,8 @@ import cloudinary.uploader
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'demoServiceAccount.json'
 
 app = Flask(__name__)
-CORS(app, resources={r"/synthesize": {"origins": "https://convert-404900.ue.r.appspot.com"}})
-#CORS(app)
+#CORS(app, resources={r"/synthesize": {"origins": "https://convert-404900.ue.r.appspot.com"}})
+CORS(app)
 
 
 cloudinary.config( 
@@ -304,4 +304,7 @@ def synthesize():
     return jsonify({'message': f'Audio synthesized in {language}', 'audio_url': audio_url}), 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Desactiva el modo de depuración
+    app.debug = False
+    # Ejecuta la aplicación con Gunicorn
+    app.run()
