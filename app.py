@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Importa la extensión CORS
+from flask_cors import CORS, cross_origin  # Importa la extensión CORS
 import os
 import asyncio
 import io  # Agregar esta línea para importar el módulo io
@@ -10,8 +10,8 @@ import cloudinary.uploader
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'demoServiceAccount.json'
 
 app = Flask(__name__)
-CORS(app, resources={r"/synthesize": {"origins": "http://localhost:8000"}})
-
+CORS(app, resources={r"/synthesize": {"origins": "https://convert-404900.ue.r.appspot.com"}})
+#CORS(app)
 
 
 cloudinary.config( 
@@ -32,7 +32,8 @@ async def synthesize_speech(input_text, voice_params):
         )
         
         return response.audio_content
-
+    
+@cross_origin
 @app.route('/synthesize', methods=['POST'])
 def synthesize():
     data = request.get_json()
